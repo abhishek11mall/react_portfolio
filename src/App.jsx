@@ -1,35 +1,43 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Technologies from './components/Technologies';
-import Experiences from './components/Experiences';
-import Projects from './components/Projects';
-import Contect from './components/Contect';
-import Sendmess from './components/Sendmess';
-import About from './components/About';
 import { Toaster } from "react-hot-toast";
-
+import ScrollProgress from "./components/ScrollProgress";
+import Navbar from "./components/Navbar";
+import SectionNav from "./components/SectionNav";
+import FloatingContact from "./components/FloatingContact";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Technologies from "./components/Technologies";
+import Experiences from "./components/Experiences";
+import Education from "./components/Education";
+import Projects from "./components/Projects";
+import Services from "./components/Services";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
-    <div className='overflow-x-hidden antialiased text-neutral-300 selection:bg-cyan-300 selection:text-cyan-900'>
-      <div className='fixed top-0 w-full h-full -z-10'>
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-      </div>
-      <div className='container px-8 mx-auto'>
-        <Navbar />
+    <div className="overflow-x-hidden antialiased text-neutral-300 selection:bg-cyan-300 selection:text-cyan-900">
+      <ScrollProgress />
+
+      {/* Original purple-tinted depth gradient (grid lives in the Hero) */}
+      <div className="fixed inset-0 -z-10 bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+
+      <Navbar />
+      <SectionNav />
+      <FloatingContact />
+
+      <main className="container px-6 mx-auto md:px-8">
         <Hero />
         <About />
         <Technologies />
         <Experiences />
+        <Education />
         <Projects />
-        <Sendmess />
-        <Contect />
-      </div>
-      <Toaster/>
+        <Services />
+        <Contact />
+      </main>
+
+      <Toaster position="bottom-right" />
     </div>
   );
 };
 
 export default App;
-
